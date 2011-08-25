@@ -1,0 +1,16 @@
+
+Dialog to stop siren
+Settings
+whitelist
+blacklist
+customise ringtone
+disable siren
+contacts lookup
+customise keyword
+send sms to contacts about app
+icon
+description
+signing app
+publishing apps
+Stop the message popping up infront of the app screen
+shrink mp3 filesize

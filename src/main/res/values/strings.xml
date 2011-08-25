@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Emergency BreakThrough</string>
+    <string name="alert_title">You have received an emergency message.</string>
+</resources>

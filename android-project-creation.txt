@@ -1,0 +1,28 @@
+
+$ android-plugin/script/create_project  EmergencyBreakThrough  org.jgh.emergencybreakthrough --scala-version 2.9.0-1 --platform android-10
+
+
+$ vi project/plugins/Plugins.scala
+
+Insert:
+
+val sbtIdeaRepo = "sbt-idea-repo" at "http://mpeltonen.github.com/maven/"
+      val sbtIdea = "com.github.mpeltonen" % "sbt-idea-plugin" % "0.3.0"
+
+
+
+$ vi project/build/EmergencyBreakThrough.scala
+Add:  with IdeaProject {
+
+Eg. class AndroidScalaWs(info: ProjectInfo) extends ParentProject(info) 
+	with IdeaProject {
+
+$sbt
+>idea
+>exit
+
+$ mv src/main/AndroidManifestIn.xml src/main/AndroidManifest.xml
+
+Open in idea
+Accept android facet
+
