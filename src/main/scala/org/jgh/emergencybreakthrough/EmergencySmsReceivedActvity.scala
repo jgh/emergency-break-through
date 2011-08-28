@@ -6,7 +6,6 @@ import android.media.{AudioManager, MediaPlayer}
 import android.content.res.Resources
 import android.app.{AlertDialog, Activity}
 import android.app.AlertDialog.Builder
-import android.content.{DialogInterface, Context, Intent}
 import android.net.Uri
 import android.provider.ContactsContract.{Contacts, PhoneLookup}
 import android.provider.ContactsContract
@@ -15,8 +14,10 @@ import android.util.Log
 import android.telephony.PhoneNumberUtils
 import android.content.DialogInterface.{OnClickListener, OnCancelListener}
 import android.provider.Contacts.PeopleColumns
+import android.content.{Intent, DialogInterface, Context}
+import android.provider.ContactsContract.CommonDataKinds.Phone
 
-class MainActivity extends Activity {
+class EmergencySmsReceivedActivity extends Activity {
   def setRingerModeToNormal {
     val audioManager = getSystemService(Context.AUDIO_SERVICE).asInstanceOf[AudioManager];
     val ringerMode = audioManager.getRingerMode
@@ -61,7 +62,20 @@ class MainActivity extends Activity {
     val dialog = new Builder(this)
     dialog.setTitle(R.string.alert_title)
     dialog.setMessage("You have received an emergency text from: " + name)
-    dialog.setNeutralButton("Stop Siren",new OnClickListener {
+    dialog.setPositiveButton(R.string.call, new OnClickListener {
+
+
+      def onClick(p1: DialogInterface, p2: Int) {
+        mp.stop();
+        mp.release();
+
+        Log.w("EmergencyBreakThrough", "Dialog closed.")
+        val uri = Uri.parse("tel:" + phoneNumber);
+        val intent: Intent = new Intent(Intent.ACTION_DIAL, uri)
+        startActivity(intent)
+      }
+    })
+    dialog.setNeutralButton(R.string.stop_siren, new OnClickListener {
       def onClick(p1: DialogInterface, p2: Int) {
         mp.stop();
         mp.release();
