@@ -9,6 +9,7 @@ import android.content.{DialogInterface, Intent, Context, BroadcastReceiver}
 import android.media.MediaPlayer
 import android.app.{Dialog, AlertDialog}
 import android.app.AlertDialog.Builder
+import java.lang.Math
 
 class SmsReceiver extends  BroadcastReceiver {
 
@@ -21,7 +22,7 @@ class SmsReceiver extends  BroadcastReceiver {
   }
 
   def openActivity(context: Context, messageBody: String, number:String) {
-    val intent = new Intent(context, classOf[MainActivity])
+    val intent = new Intent(context, classOf[EmergencySmsReceivedActivity])
     intent.putExtra(Intent.EXTRA_TEXT, messageBody)
     intent.putExtra(Intent.EXTRA_PHONE_NUMBER, number)
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -30,16 +31,15 @@ class SmsReceiver extends  BroadcastReceiver {
 
   def onReceive(context: Context, smsReceivedIntent: Intent) {
     val message = extractMessageFromIntent(smsReceivedIntent)
-
     val messageBody = message.getDisplayMessageBody
     val number = message.getOriginatingAddress
 
     Log.i("SmsReceiver", "SMS Received: " + messageBody)
 
-    if (messageBody.startsWith("emergency:")) {
+    val emergencyPrefix = "emergency:"
+    val messagePrefix = messageBody.substring(0, Math.min(messageBody.length(),  emergencyPrefix.length() ))
+    if (messagePrefix.equalsIgnoreCase(emergencyPrefix)) {
       openActivity(context, messageBody, number)
     }
-
   }
-
 }
