@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent">
+
+  <PreferenceCategory
+      android:title="@string/general_preferences">
+
+    <EditTextPreference
+        android:key="@string/prefix_preference_key"
+        android:title="@string/title_emergency_prefix_preference"
+        android:summary="@string/summary_emergency_prefix_preference"
+        android:dialogTitle="@string/summary_emergency_prefix_preference"/>
+    <CheckBoxPreference
+        android:key="enabled_preference"
+        android:title="@string/title_enabled_preference"
+        android:summary="@string/summary_enabled_preference" android:defaultValue="true"/>
+    <Preference
+        android:key="sms_preference"
+        android:title="@string/title_send_sms_preference"
+        android:summary="@string/summary_send_sms_preference"/>
+
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/sender_preferences">
+    <CheckBoxPreference
+        android:key="contacts_preference"
+        android:title="@string/title_contacts_preference"
+        android:summary="@string/summary_contacts_preference" android:defaultValue="true"/>
+    <ListPreference android:key="sender_mode_preference"
+                    android:title="@string/title_sender_mode_preference"
+                    android:summary="@string/summary_sender_preference"
+                    android:entries="@array/entries_sender_mode_preference"
+                    android:defaultValue="anybody"
+                    android:entryValues="@array/entryvalues_sender_mode_preference"
+                    android:dialogTitle="@string/dialog_title_sender_mode_preference"/>
+    <org.jgh.emergencybreakthrough.ContactPreference android:key="whitelist_preference"
+                                                     android:title="@string/title_whitelist_preference"
+                                                     android:summary="@string/summary_whitelist_preference"
+                                                     android:dialogTitle="@string/title_whitelist_preference"/>
+    <org.jgh.emergencybreakthrough.ContactPreference android:key="blacklist_preference"
+                                                     android:title="@string/title_blacklist_preference"
+                                                     android:summary="@string/summary_blacklist_preference"
+                                                     android:dialogTitle="@string/dialog_title_blacklist_preference"/>
+  </PreferenceCategory>
+
+</PreferenceScreen>

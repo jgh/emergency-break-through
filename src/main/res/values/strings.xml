@@ -1,4 +1,43 @@
 <resources>
-    <string name="app_name">Emergency BreakThrough</string>
-    <string name="alert_title">You have received an emergency message.</string>
+  <string name="app_name">Emergency BreakThrough</string>
+  <string name="alert_title">You have received an emergency message.</string>
+  <string name="stop_siren">Stop siren</string>
+  <string name="call">Call</string>
+  <string name="save">Save</string>
+  <string name="settings_title">Emergency Breakthrough Settings</string>
+  <string name="main_title">Emergency Breakthrough</string>
+  <string name="settings">Settings</string>
+  <string name="emergency_prefix_label">Emergency text prefix: </string>
+  <string name="title_emergency_prefix_preference">Emergency text prefix</string>
+  <string name="summary_emergency_prefix_preference">The text a SMS must begin with to activate Emergency Breakthrough</string>
+  <string name="title_enabled_preference">Enabled</string>
+  <string name="summary_enabled_preference">Enable or disable Emergency Breakthrough</string>
+  <string name="general_preferences">General</string>
+  <string name="sender_preferences">Sender</string>
+  <string name="title_sender_mode_preference">Sender mode</string>
+  <string name="summary_sender_preference">Determines who is allowed to activate the emergency breakthrough app.</string>
+  <string name="dialog_title_sender_mode_preference">Sender mode</string>
+  <array name="entries_sender_mode_preference">
+    <item>All</item>
+    <item>Whitelist</item>
+    <item>Blacklist</item>
+  </array>
+  <array name="entryvalues_sender_mode_preference">
+    <item>anybody</item>
+    <item>whitelist</item>
+    <item>blacklist</item>
+  </array>
+  <string name="title_blacklist_preference">Blacklist</string>
+  <string name="summary_blacklist_preference">Contacts in the list are ignored if they send emergency texts.</string>
+  <string name="dialog_title_blacklist_preference">Blacklist</string>
+  <string name="prefix_preference_key">prefix_preference</string>
+  <string name="title_whitelist_preference">Whitelist</string>
+  <string name="summary_whitelist_preference">Contacts must be in this list to activate the emergency breakthrough app.</string>
+  <string name="title_contacts_preference">Contacts Only</string>
+  <string name="summary_contacts_preference">Only senders in your contacts list can activate the emergency breakthrough app</string>
+  <string name="title_send_sms_preference">Send SMS</string>
+  <string name="summary_send_sms_preference">Send an SMS to your friends and family explaining how to use the emergency breakthrough app so they can contact you in an emergency.</string>
+  <string name="send_sms_template">Hi,
+     I have installed the Emergency Breakthrough App on my phone. If you need to contact me in an emergency simply send me a text beginning with %1$s and my phone will alert me even it is on silent.
+  </string>
 </resources>
