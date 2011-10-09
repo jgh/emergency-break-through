@@ -4,4 +4,4 @@ tests/src_managed
 tests/target
 *.iml
 .idea
-
+*.swp

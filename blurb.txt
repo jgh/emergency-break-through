@@ -1,0 +1,19 @@
+This is an app that I sincerely hope you never have to use. It allows you to put your phone on silent mode and still be confident your friends
+and family can contact you in an emergency.
+
+Many of us work in industries, such as hospitality and retail, where it is not appropriate to have your phone ringing
+while at  work. You could put the phone on silent or vibrate but what if an emergency happens and someone needs to urgently
+contact you? This app is designed to solve that problem. Your phone can remain silent for ordinary calls and texts but
+when an emergency SMS is received the phone will turn off silent mode and play an alert sound.  It is easy to use. To activate it simply send an SMS message to the phone that begins with 'emergency:'. The app
+will then activate, turning the phone off silent mode and playing an alert.
+
+Examples
+emergency: Honey my waters have broken. Get home NOW!
+emergency: Mum the car has broken down. Can you pick me up?
+emergency:
+
+Once the app is installed it is ready to use, however you can easily customise it to your needs.
+Change the text that activates the app
+Choose only to activate when the SMS is from someone in you contact list.
+You can even choose to let only some of your contacts activate the app or ban certain contacts
+from activating the app.
