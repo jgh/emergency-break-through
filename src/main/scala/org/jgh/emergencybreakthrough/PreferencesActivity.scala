@@ -10,7 +10,6 @@ class PreferencesActivity extends PreferenceActivity {
    override  def onCreate(savedInstanceState:Bundle ) {
      super.onCreate(savedInstanceState);
      addPreferencesFromResource(R.xml.preferences);
-      //todo: disable/enable lists based on mode
 
      val emergencyPrefix = new Preferences(this).getEmergencyPrefix()
      val sms = findPreference("sms_preference")
@@ -24,13 +23,13 @@ class PreferencesActivity extends PreferenceActivity {
 
        }
      })
-     val mode = findPreference("sender_mode_preference")
-     val bl = findPreference("whitelist_preference")
-     val wl = findPreference("blacklist_preference")
+     val whitelist = findPreference("whitelist_preference")
+     val blacklist = findPreference("blacklist_preference")
      def enableListPreferences(newValue: AnyRef) {
-       wl.setEnabled(newValue.equals("whitelist"))
-       bl.setEnabled(newValue.equals("blacklist"))
+       whitelist.setEnabled(newValue.equals("whitelist"))
+       blacklist.setEnabled(newValue.equals("blacklist"))
      }
+     val mode = findPreference("sender_mode_preference")
      mode.setOnPreferenceChangeListener(new OnPreferenceChangeListener {
        def onPreferenceChange(p: Preference, newValue: AnyRef) = {
          enableListPreferences(newValue)
