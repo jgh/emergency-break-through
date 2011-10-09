@@ -23,13 +23,13 @@ class Preferences(context:Context) {
 
   def activeForContact(contactId: Option[String]):Boolean = {
     val contactsOnly = sharedPreferences.getBoolean("contacts_preference", true)
-    if (!contactId.isDefined && contactsOnly)  false
+    if (!contactId.isDefined && contactsOnly) return  false
 
     val mode = sharedPreferences.getString("sender_mode_preference", "anybody")
     mode match {
-      case "anybody" =>  true;
       case "blacklist" => !contactId.exists(getBlacklist().contains(_))
       case "whitelist" => contactId.exists(getWhitelist().contains(_))
+      case _ =>  true;
     }
   }
 
