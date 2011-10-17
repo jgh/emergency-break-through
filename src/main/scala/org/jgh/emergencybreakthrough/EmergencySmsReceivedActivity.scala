@@ -13,10 +13,7 @@ class EmergencySmsReceivedActivity extends Activity {
 
   def setRingerModeToNormal {
     val audioManager = getSystemService(Context.AUDIO_SERVICE).asInstanceOf[AudioManager];
-    val ringerMode = audioManager.getRingerMode
-    if (ringerMode != AudioManager.RINGER_MODE_NORMAL) {
-      audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL)
-    }
+    audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL)
   }
 
   override def onCreate(savedInstanceState: Bundle) {
@@ -24,6 +21,7 @@ class EmergencySmsReceivedActivity extends Activity {
     val phoneNumber = getIntent.getStringExtra(Intent.EXTRA_PHONE_NUMBER)
     val name =  getIntent.getStringExtra("display_name")
 
+    Log.i("EmergencySmsReceivedActivity", "Name: " + name)
     setRingerModeToNormal
 
     val mp = MediaPlayer.create(this, R.raw.police);

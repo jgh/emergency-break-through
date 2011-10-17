@@ -24,7 +24,7 @@ object ContactPreference {
     else value.split(SEPARATOR)
   }
 
-  def joinValues(selectedValues: Array[(CharSequence, Boolean)]): String = {
+  def joinValues(selectedValues: Array[CharSequence]): String = {
     selectedValues.mkString(ContactPreference.SEPARATOR)
   }
   private val SEPARATOR: String = "|"
@@ -62,7 +62,8 @@ class ContactPreference(context:Context, attrs:AttributeSet) extends ListPrefere
   protected override def onDialogClosed(positiveResult: Boolean) {
     val entryValues: Array[CharSequence] = getEntryValues
     if (positiveResult && entryValues != null) {
-      val joinedValues = ContactPreference.joinValues(entryValues.zip(mClickedDialogEntryIndices).filter(_._2))
+      val joinedValues = ContactPreference.joinValues(
+        entryValues.zip(mClickedDialogEntryIndices).filter(_._2).map(_._1))
       if (callChangeListener(joinedValues)) {
         setValue(joinedValues)
       }

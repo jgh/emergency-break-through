@@ -1,0 +1,24 @@
+Start VM with NAT networking
+Alt + F1 to get console
+>netcfg
+to get ip address
+
+open terminal in host
+run
+>adb connect <ip from netcfg>
+
+should see
+$ adb connect 192.168.181.132
+* daemon not running. starting it now on port 5037 *
+* daemon started successfully *
+connected to 192.168.181.132:5555
+
+Should now be able to use sbt to deploy to vm
+sbt> reinstall-emulator
+
+Still can't seem to send SMS. Can only send a string extra with the intent.
+
+>adb shell
+
+root@vm>am broadcast -a
+
