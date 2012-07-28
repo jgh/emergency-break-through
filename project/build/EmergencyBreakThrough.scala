@@ -13,7 +13,8 @@ class EmergencyBreakThrough(info: ProjectInfo) extends ParentProject(info)
 //  lazy val tests = project("tests",  "tests", new TestProject(_), main)
 
   class MainProject(info: ProjectInfo) extends AndroidProject(info) with Defaults with MarketPublish with AndroidManifestGenerator {
-    val keyalias  = "change-me"
+    val keyalias  = "primary"
+    override val keystorePath = Path.userHome  / "dev"  / "workspace" / "android-keystore.jks"
     val scalatest = "org.scalatest" % "scalatest" % "1.2" % "test"
   }
 
