@@ -8,7 +8,6 @@ import android.content.{DialogInterface, Context}
 import android.provider.Contacts.PeopleColumns
 import android.net.Uri
 import android.provider.{ContactsContract, BaseColumns}
-import org.jgh.emergencybreakthrough.ContactPreference
 
 /**
  * Created by IntelliJ IDEA.

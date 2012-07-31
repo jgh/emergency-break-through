@@ -1,5 +1,6 @@
 <resources>
-  <string name="app_name">Emergency BreakThrough</string>
+  <string name="default_prefix">emergency:</string>
+    <string name="app_name">emergency breakthrough</string>
   <string name="alert_title">You have received an emergency message.</string>
   <string name="stop_siren">Stop siren</string>
   <string name="call">Call</string>

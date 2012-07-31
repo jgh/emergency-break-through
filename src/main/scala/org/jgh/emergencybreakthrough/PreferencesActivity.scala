@@ -11,6 +11,7 @@ class PreferencesActivity extends PreferenceActivity {
      super.onCreate(savedInstanceState);
      addPreferencesFromResource(R.xml.preferences);
 
+     //todo:validate  not  empty  string
      val emergencyPrefix = new Preferences(this).getEmergencyPrefix()
      val sms = findPreference("sms_preference")
      sms.setOnPreferenceClickListener(new OnPreferenceClickListener {

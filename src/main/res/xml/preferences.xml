@@ -11,7 +11,8 @@
         android:key="@string/prefix_preference_key"
         android:title="@string/title_emergency_prefix_preference"
         android:summary="@string/summary_emergency_prefix_preference"
-        android:dialogTitle="@string/summary_emergency_prefix_preference"/>
+        android:dialogTitle="@string/summary_emergency_prefix_preference"
+        android:defaultValue="@string/default_prefix"/>
     <CheckBoxPreference
         android:key="enabled_preference"
         android:title="@string/title_enabled_preference"
