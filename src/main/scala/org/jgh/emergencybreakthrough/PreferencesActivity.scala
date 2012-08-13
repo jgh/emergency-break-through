@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.preference.{Preference, PreferenceActivity}
 import android.preference.Preference.{OnPreferenceClickListener, OnPreferenceChangeListener}
 import android.content.Intent
+import android.app.AlertDialog
 
 class PreferencesActivity extends PreferenceActivity {
 
@@ -13,6 +14,25 @@ class PreferencesActivity extends PreferenceActivity {
 
      //todo:validate  not  empty  string
      val emergencyPrefix = new Preferences(this).getEmergencyPrefix()
+     val prefix = findPreference("prefix_preference")
+     val  ctx = this
+     prefix.setOnPreferenceChangeListener(
+       new OnPreferenceChangeListener() {
+         def onPreferenceChange(pref:Preference , newValue:Any):Boolean = {
+            newValue  match  {
+              case  ""  => {
+                  val builder = new AlertDialog.Builder(ctx);
+                  builder.setTitle("Invalid Input");
+                  builder.setMessage("The prefix can not be empty.");
+                  builder.setPositiveButton(android.R.string.ok, null);
+                  builder.show();
+                  false;
+              }
+              case  _  => true;
+            }
+         }
+     })
+
      val sms = findPreference("sms_preference")
      sms.setOnPreferenceClickListener(new OnPreferenceClickListener {
        def onPreferenceClick(p1: Preference) = {

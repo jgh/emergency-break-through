@@ -33,7 +33,7 @@ class Preferences(context:Context) {
     }
   }
 
-  val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+  lazy val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
   val defaultPrefix: String = "emergency:"
   val prefixKey: String = "prefix_preference"
 
